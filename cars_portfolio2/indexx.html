@@ -1,0 +1,2852 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="theme-color" content="#0a0a0a">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Supercar Showcase | Premium Automotive Experience</title>
+
+    
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <style>
+
+        /* ========================================
+
+           CSS VARIABLES & DESIGN SYSTEM
+
+        ======================================== */
+
+        :root {
+
+            /* Colors */
+
+            --color-bg: #0a0a0a;
+
+            --color-bg-elevated: #141414;
+
+            --color-surface: rgba(20, 20, 20, 0.85);
+
+            --color-surface-glass: rgba(255, 255, 255, 0.05);
+
+            --color-surface-glass-hover: rgba(255, 255, 255, 0.1);
+
+            --color-border: rgba(255, 255, 255, 0.1);
+
+            --color-border-hover: rgba(255, 255, 255, 0.2);
+
+            
+
+            /* Accent Colors */
+
+            --accent-primary: #ff3b30;
+
+            --accent-secondary: #007aff;
+
+            --accent-gold: #d4af37;
+
+            --accent-lime: #34c759;
+
+            
+
+            /* Typography */
+
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            --font-display: 'Space Grotesk', sans-serif;
+
+            
+
+            /* Font Sizes - Mobile First */
+
+            --text-xs: clamp(0.625rem, 1.5vw, 0.75rem);
+
+            --text-sm: clamp(0.75rem, 1.8vw, 0.875rem);
+
+            --text-base: clamp(0.875rem, 2vw, 1rem);
+
+            --text-lg: clamp(1rem, 2.5vw, 1.125rem);
+
+            --text-xl: clamp(1.125rem, 3vw, 1.25rem);
+
+            --text-2xl: clamp(1.25rem, 4vw, 1.5rem);
+
+            --text-3xl: clamp(1.5rem, 5vw, 2rem);
+
+            --text-4xl: clamp(2rem, 7vw, 3rem);
+
+            --text-5xl: clamp(2.5rem, 10vw, 4.5rem);
+
+            --text-6xl: clamp(3rem, 12vw, 6rem);
+
+            
+
+            /* Spacing */
+
+            --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+
+            --space-sm: clamp(0.5rem, 1.5vw, 0.75rem);
+
+            --space-md: clamp(0.75rem, 2vw, 1rem);
+
+            --space-lg: clamp(1rem, 3vw, 1.5rem);
+
+            --space-xl: clamp(1.5rem, 4vw, 2rem);
+
+            --space-2xl: clamp(2rem, 5vw, 3rem);
+
+            --space-3xl: clamp(3rem, 7vw, 4rem);
+
+            
+
+            /* Shadows */
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+
+            --shadow-glow: 0 0 40px rgba(255, 59, 48, 0.3);
+
+            
+
+            /* Transitions */
+
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            --transition-spring: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            
+
+            /* Border Radius */
+
+            --radius-sm: 8px;
+
+            --radius-md: 12px;
+
+            --radius-lg: 16px;
+
+            --radius-xl: 24px;
+
+            --radius-full: 9999px;
+
+            
+
+            /* Z-Index Scale */
+
+            --z-base: 1;
+
+            --z-content: 10;
+
+            --z-overlay: 50;
+
+            --z-nav: 100;
+
+            --z-modal: 200;
+
+        }
+
+        /* ========================================
+
+           RESET & BASE STYLES
+
+        ======================================== */
+
+        *, *::before, *::after {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+
+            -webkit-tap-highlight-color: transparent;
+
+        }
+
+        html {
+
+            font-size: 16px;
+
+            -webkit-text-size-adjust: 100%;
+
+            -webkit-font-smoothing: antialiased;
+
+            -moz-osx-font-smoothing: grayscale;
+
+            text-rendering: optimizeLegibility;
+
+        }
+
+        body {
+
+            font-family: var(--font-primary);
+
+            background: var(--color-bg);
+
+            color: #fff;
+
+            min-height: 100vh;
+
+            min-height: 100dvh;
+
+            overflow: hidden;
+
+            position: relative;
+
+            line-height: 1.5;
+
+        }
+
+        /* ========================================
+
+           LOADING SCREEN
+
+        ======================================== */
+
+        .loading-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: var(--color-bg);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 9999;
+
+            transition: opacity 600ms ease, visibility 600ms ease;
+
+        }
+
+        .loading-screen.hidden {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+        }
+
+        .loading-logo {
+
+            font-family: var(--font-display);
+
+            font-size: var(--text-3xl);
+
+            font-weight: 700;
+
+            letter-spacing: 0.2em;
+
+            text-transform: uppercase;
+
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+
+            margin-bottom: var(--space-lg);
+
+        }
+
+        .loading-bar {
+
+            width: min(200px, 60vw);
+
+            height: 2px;
+
+            background: rgba(255,255,255,0.1);
+
+            border-radius: var(--radius-full);
+
+            overflow: hidden;
+
+            position: relative;
+
+        }
+
+        .loading-progress {
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            height: 100%;
+
+            width: 0%;
+
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-gold));
+
+            transition: width 300ms ease;
+
+            box-shadow: var(--shadow-glow);
+
+        }
+
+        .loading-text {
+
+            font-size: var(--text-xs);
+
+            color: rgba(255,255,255,0.5);
+
+            margin-top: var(--space-md);
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+        }
+
+        /* ========================================
+
+           MAIN CONTAINER
+
+        ======================================== */
+
+        .slider-container {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            overflow: hidden;
+
+        }
+
+        /* ========================================
+
+           NOW SHOWING BADGE
+
+        ======================================== */
+
+        .now-showing {
+
+            position: absolute;
+
+            top: var(--space-lg);
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            z-index: var(--z-nav);
+
+            padding: var(--space-sm) var(--space-lg);
+
+            background: var(--color-surface-glass);
+
+            backdrop-filter: blur(20px) saturate(180%);
+
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+            border: 1px solid var(--color-border);
+
+            border-radius: var(--radius-full);
+
+            font-size: var(--text-xs);
+
+            font-weight: 600;
+
+            letter-spacing: 0.2em;
+
+            text-transform: uppercase;
+
+            color: rgba(255,255,255,0.9);
+
+            box-shadow: var(--shadow-md);
+
+            animation: badgeFloat 3s ease-in-out infinite;
+
+        }
+
+        @keyframes badgeFloat {
+
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+
+            50% { transform: translateX(-50%) translateY(-4px); }
+
+        }
+
+        /* ========================================
+
+           ACCORDION SLIDER
+
+        ======================================== */
+
+        .accordion-slider {
+
+            display: flex;
+
+            width: 100%;
+
+            height: 100%;
+
+            position: relative;
+
+        }
+
+        /* ========================================
+
+           SLIDE STYLES
+
+        ======================================== */
+
+        .slide {
+
+            position: relative;
+
+            height: 100%;
+
+            flex: 1;
+
+            min-width: 60px;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            transition: flex var(--transition-slow), filter var(--transition-base);
+
+            will-change: flex;
+
+        }
+
+        .slide::before {
+
+            content: '';
+
+            position: absolute;
+
+            inset: 0;
+
+            background: linear-gradient(
+
+                180deg,
+
+                rgba(0,0,0,0.1) 0%,
+
+                rgba(0,0,0,0.3) 50%,
+
+                rgba(0,0,0,0.8) 100%
+
+            );
+
+            z-index: 1;
+
+            transition: opacity var(--transition-base);
+
+        }
+
+        .slide::after {
+
+            content: '';
+
+            position: absolute;
+
+            inset: 0;
+
+            background: radial-gradient(
+
+                ellipse at center,
+
+                transparent 0%,
+
+                rgba(0,0,0,0.4) 100%
+
+            );
+
+            z-index: 2;
+
+            opacity: 0;
+
+            transition: opacity var(--transition-base);
+
+        }
+
+        .slide-background {
+
+            position: absolute;
+
+            inset: 0;
+
+            background-size: cover;
+
+            background-position: center;
+
+            transform: scale(1.1);
+
+            transition: transform var(--transition-slow);
+
+        }
+
+        .slide.active .slide-background {
+
+            transform: scale(1);
+
+        }
+
+        /* Slide States */
+
+        .slide.active {
+
+            flex: 5;
+
+            cursor: default;
+
+        }
+
+        .slide:not(.active) {
+
+            filter: grayscale(0.4) brightness(0.6);
+
+        }
+
+        .slide:not(.active):hover {
+
+            filter: grayscale(0.2) brightness(0.8);
+
+        }
+
+        .slide.active::after {
+
+            opacity: 1;
+
+        }
+
+        /* Vertical Divider */
+
+        .slide:not(:last-child)::before {
+
+            content: '';
+
+            position: absolute;
+
+            right: 0;
+
+            top: 10%;
+
+            height: 80%;
+
+            width: 1px;
+
+            background: linear-gradient(
+
+                180deg,
+
+                transparent 0%,
+
+                rgba(255,255,255,0.2) 50%,
+
+                transparent 100%
+
+            );
+
+            z-index: 10;
+
+        }
+
+        /* ========================================
+
+           SLIDE CONTENT
+
+        ======================================== */
+
+        .slide-content {
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            right: 0;
+
+            padding: var(--space-xl);
+
+            padding-bottom: calc(var(--space-3xl) + 60px);
+
+            z-index: var(--z-content);
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition: opacity var(--transition-slow) 200ms, transform var(--transition-slow) 200ms;
+
+            pointer-events: none;
+
+        }
+
+        .slide.active .slide-content {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+            pointer-events: auto;
+
+        }
+
+        /* Slide Number */
+
+        .slide-number {
+
+            font-family: var(--font-display);
+
+            font-size: var(--text-5xl);
+
+            font-weight: 700;
+
+            color: rgba(255,255,255,0.08);
+
+            line-height: 1;
+
+            position: absolute;
+
+            top: -20px;
+
+            left: var(--space-xl);
+
+            user-select: none;
+
+            transition: color var(--transition-base);
+
+        }
+
+        .slide.active .slide-number {
+
+            color: rgba(255,255,255,0.15);
+
+        }
+
+        /* Car Brand */
+
+        .car-brand {
+
+            font-size: var(--text-xs);
+
+            font-weight: 600;
+
+            letter-spacing: 0.3em;
+
+            text-transform: uppercase;
+
+            color: var(--accent-primary);
+
+            margin-bottom: var(--space-xs);
+
+            opacity: 0;
+
+            transform: translateX(-20px);
+
+            transition: opacity var(--transition-base) 300ms, transform var(--transition-base) 300ms;
+
+        }
+
+        .slide.active .car-brand {
+
+            opacity: 1;
+
+            transform: translateX(0);
+
+        }
+
+        /* Car Name */
+
+        .car-name {
+
+            font-family: var(--font-display);
+
+            font-size: var(--text-4xl);
+
+            font-weight: 700;
+
+            line-height: 1.1;
+
+            margin-bottom: var(--space-sm);
+
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            transition: opacity var(--transition-base) 400ms, transform var(--transition-base) 400ms;
+
+        }
+
+        .slide.active .car-name {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+        /* Car Subtitle */
+
+        .car-subtitle {
+
+            font-size: var(--text-sm);
+
+            color: rgba(255,255,255,0.6);
+
+            margin-bottom: var(--space-lg);
+
+            opacity: 0;
+
+            transform: translateY(15px);
+
+            transition: opacity var(--transition-base) 500ms, transform var(--transition-base) 500ms;
+
+        }
+
+        .slide.active .car-subtitle {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+        /* ========================================
+
+           CAR SPECS - GLASSMORPHISM PANEL
+
+        ======================================== */
+
+        .car-specs {
+
+            background: var(--color-surface-glass);
+
+            backdrop-filter: blur(20px) saturate(180%);
+
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+            border: 1px solid var(--color-border);
+
+            border-radius: var(--radius-lg);
+
+            padding: var(--space-lg);
+
+            margin-bottom: var(--space-lg);
+
+            box-shadow: var(--shadow-lg);
+
+            opacity: 0;
+
+            transform: translateY(20px) scale(0.95);
+
+            transition: opacity var(--transition-base) 600ms, transform var(--transition-base) 600ms, box-shadow var(--transition-base);
+
+        }
+
+        .slide.active .car-specs {
+
+            opacity: 1;
+
+            transform: translateY(0) scale(1);
+
+        }
+
+        .car-specs:hover {
+
+            box-shadow: var(--shadow-xl), 0 0 30px rgba(255,255,255,0.05);
+
+            border-color: var(--color-border-hover);
+
+        }
+
+        .spec-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: var(--space-sm) 0;
+
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+
+        }
+
+        .spec-row:last-child {
+
+            border-bottom: none;
+
+        }
+
+        .spec-label {
+
+            font-size: var(--text-xs);
+
+            color: rgba(255,255,255,0.5);
+
+            font-weight: 500;
+
+        }
+
+        .spec-value {
+
+            font-size: var(--text-xs);
+
+            color: rgba(255,255,255,0.9);
+
+            font-weight: 600;
+
+            text-align: right;
+
+        }
+
+        /* ========================================
+
+           PERFORMANCE BADGES
+
+        ======================================== */
+
+        .performance-badges {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: var(--space-sm);
+
+            opacity: 0;
+
+            transform: translateY(15px);
+
+            transition: opacity var(--transition-base) 700ms, transform var(--transition-base) 700ms;
+
+        }
+
+        .slide.active .performance-badges {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+        .badge {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: var(--space-xs);
+
+            padding: var(--space-sm) var(--space-md);
+
+            background: var(--color-surface-glass);
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+
+            border: 1px solid var(--color-border);
+
+            border-radius: var(--radius-full);
+
+            font-size: var(--text-xs);
+
+            font-weight: 600;
+
+            color: rgba(255,255,255,0.9);
+
+            transition: all var(--transition-base);
+
+            cursor: default;
+
+        }
+
+        .badge:hover {
+
+            background: var(--color-surface-glass-hover);
+
+            border-color: var(--color-border-hover);
+
+            transform: translateY(-2px);
+
+            box-shadow: var(--shadow-md);
+
+        }
+
+        .badge-icon {
+
+            width: 6px;
+
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--accent-lime);
+
+            box-shadow: 0 0 8px var(--accent-lime);
+
+        }
+
+        .badge:nth-child(2) .badge-icon {
+
+            background: var(--accent-secondary);
+
+            box-shadow: 0 0 8px var(--accent-secondary);
+
+        }
+
+        .badge:nth-child(3) .badge-icon {
+
+            background: var(--accent-gold);
+
+            box-shadow: 0 0 8px var(--accent-gold);
+
+        }
+
+        /* ========================================
+
+           ADD BUTTON
+
+        ======================================== */
+
+        .add-button {
+
+            position: absolute;
+
+            bottom: var(--space-xl);
+
+            right: var(--space-xl);
+
+            width: 56px;
+
+            height: 56px;
+
+            background: linear-gradient(135deg, var(--accent-primary), #ff6b5b);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            z-index: var(--z-content);
+
+            box-shadow: 0 4px 20px rgba(255, 59, 48, 0.4);
+
+            transition: all var(--transition-spring);
+
+            opacity: 0;
+
+            transform: scale(0.8);
+
+        }
+
+        .slide.active .add-button {
+
+            opacity: 1;
+
+            transform: scale(1);
+
+            transition-delay: 800ms;
+
+        }
+
+        .add-button::before,
+
+        .add-button::after {
+
+            content: '';
+
+            position: absolute;
+
+            background: #fff;
+
+            border-radius: 2px;
+
+            transition: transform var(--transition-base);
+
+        }
+
+        .add-button::before {
+
+            width: 20px;
+
+            height: 2px;
+
+        }
+
+        .add-button::after {
+
+            width: 2px;
+
+            height: 20px;
+
+        }
+
+        .add-button:hover {
+
+            transform: scale(1.1) rotate(90deg);
+
+            box-shadow: 0 6px 30px rgba(255, 59, 48, 0.6);
+
+        }
+
+        .add-button:active {
+
+            transform: scale(0.95);
+
+        }
+
+        /* ========================================
+
+           NAVIGATION ARROWS
+
+        ======================================== */
+
+        .navigation-arrows {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 48px;
+
+            height: 48px;
+
+            background: var(--color-surface-glass);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            border: 1px solid var(--color-border);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            z-index: var(--z-nav);
+
+            color: #fff;
+
+            font-size: 24px;
+
+            transition: all var(--transition-base);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+        }
+
+        .slider-container:hover .navigation-arrows {
+
+            opacity: 1;
+
+            pointer-events: auto;
+
+        }
+
+        .navigation-arrows:hover {
+
+            background: var(--color-surface-glass-hover);
+
+            border-color: var(--color-border-hover);
+
+            transform: translateY(-50%) scale(1.1);
+
+            box-shadow: var(--shadow-lg);
+
+        }
+
+        .navigation-arrows:active {
+
+            transform: translateY(-50%) scale(0.95);
+
+        }
+
+        .nav-prev {
+
+            left: var(--space-lg);
+
+        }
+
+        .nav-next {
+
+            right: var(--space-lg);
+
+        }
+
+        /* ========================================
+
+           SLIDE INDICATORS
+
+        ======================================== */
+
+        .slide-indicators {
+
+            position: absolute;
+
+            bottom: var(--space-xl);
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            gap: var(--space-sm);
+
+            z-index: var(--z-nav);
+
+        }
+
+        .indicator {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: var(--radius-full);
+
+            background: rgba(255,255,255,0.3);
+
+            cursor: pointer;
+
+            transition: all var(--transition-base);
+
+        }
+
+        .indicator.active {
+
+            width: 32px;
+
+            background: #fff;
+
+            box-shadow: 0 0 12px rgba(255,255,255,0.5);
+
+        }
+
+        .indicator:hover:not(.active) {
+
+            background: rgba(255,255,255,0.5);
+
+        }
+
+        /* ========================================
+
+           COLLAPSED SLIDE LABEL
+
+        ======================================== */
+
+        .slide-label {
+
+            position: absolute;
+
+            bottom: 50%;
+
+            left: 50%;
+
+            transform: translateX(-50%) translateY(50%) rotate(-90deg);
+
+            white-space: nowrap;
+
+            font-family: var(--font-display);
+
+            font-size: var(--text-sm);
+
+            font-weight: 600;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+            color: rgba(255,255,255,0.6);
+
+            z-index: var(--z-content);
+
+            transition: all var(--transition-base);
+
+            opacity: 1;
+
+        }
+
+        .slide.active .slide-label {
+
+            opacity: 0;
+
+            transform: translateX(-50%) translateY(50%) rotate(-90deg) scale(0.8);
+
+        }
+
+        .slide:hover .slide-label {
+
+            color: #fff;
+
+        }
+
+        /* ========================================
+
+           TOUCH GESTURE HINT
+
+        ======================================== */
+
+        .gesture-hint {
+
+            position: absolute;
+
+            bottom: var(--space-2xl);
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: var(--space-sm);
+
+            z-index: var(--z-nav);
+
+            opacity: 0.6;
+
+            animation: hintPulse 2s ease-in-out infinite;
+
+            pointer-events: none;
+
+        }
+
+        .gesture-hint.hidden {
+
+            display: none;
+
+        }
+
+        @keyframes hintPulse {
+
+            0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+
+            50% { opacity: 0.8; transform: translateX(-50%) translateY(-5px); }
+
+        }
+
+        .gesture-icon {
+
+            width: 40px;
+
+            height: 40px;
+
+            border: 2px solid rgba(255,255,255,0.3);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+        .gesture-icon::before {
+
+            content: '↔';
+
+            font-size: 16px;
+
+            color: rgba(255,255,255,0.6);
+
+        }
+
+        .gesture-text {
+
+            font-size: var(--text-xs);
+
+            color: rgba(255,255,255,0.5);
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+
+        }
+
+        /* ========================================
+
+           RESPONSIVE BREAKPOINTS
+
+        ======================================== */
+
+        
+
+        /* Tablet */
+
+        @media (min-width: 768px) {
+
+            .slide-content {
+
+                padding: var(--space-2xl);
+
+                padding-bottom: calc(var(--space-3xl) + 80px);
+
+                max-width: 500px;
+
+            }
+
+            .car-specs {
+
+                padding: var(--space-xl);
+
+            }
+
+            .spec-row {
+
+                padding: var(--space-md) 0;
+
+            }
+
+            .navigation-arrows {
+
+                opacity: 1;
+
+                pointer-events: auto;
+
+            }
+
+        }
+
+        /* Desktop */
+
+        @media (min-width: 1024px) {
+
+            .slide-content {
+
+                max-width: 550px;
+
+                padding: var(--space-3xl);
+
+                padding-bottom: calc(var(--space-3xl) + 100px);
+
+            }
+
+            .car-name {
+
+                font-size: var(--text-5xl);
+
+            }
+
+            .add-button {
+
+                width: 64px;
+
+                height: 64px;
+
+            }
+
+            .add-button::before {
+
+                width: 24px;
+
+            }
+
+            .add-button::after {
+
+                height: 24px;
+
+            }
+
+        }
+
+        /* Large Desktop */
+
+        @media (min-width: 1440px) {
+
+            .slide-content {
+
+                max-width: 600px;
+
+            }
+
+        }
+
+        /* Mobile Portrait Optimization */
+
+        @media (max-width: 480px) and (orientation: portrait) {
+
+            .accordion-slider {
+
+                flex-direction: column;
+
+            }
+
+            .slide {
+
+                width: 100%;
+
+                height: 80px;
+
+                flex: none;
+
+                min-height: 60px;
+
+            }
+
+            .slide.active {
+
+                flex: 1;
+
+                height: auto;
+
+            }
+
+            .slide-label {
+
+                transform: translateX(-50%) translateY(50%) rotate(0deg);
+
+            }
+
+            .slide:not(:last-child)::before {
+
+                display: none;
+
+            }
+
+            .slide:not(:last-child)::after {
+
+                content: '';
+
+                position: absolute;
+
+                bottom: 0;
+
+                left: 10%;
+
+                width: 80%;
+
+                height: 1px;
+
+                background: linear-gradient(
+
+                    90deg,
+
+                    transparent 0%,
+
+                    rgba(255,255,255,0.2) 50%,
+
+                    transparent 100%
+
+                );
+
+                z-index: 10;
+
+            }
+
+            .slide-content {
+
+                padding: var(--space-lg);
+
+                padding-bottom: calc(var(--space-2xl) + 50px);
+
+            }
+
+            .car-name {
+
+                font-size: var(--text-2xl);
+
+            }
+
+            .performance-badges {
+
+                justify-content: flex-start;
+
+            }
+
+            .navigation-arrows {
+
+                display: none;
+
+            }
+
+            .gesture-hint {
+
+                display: flex;
+
+            }
+
+        }
+
+        /* Landscape Mobile */
+
+        @media (max-height: 500px) and (orientation: landscape) {
+
+            .slide-content {
+
+                padding: var(--space-md);
+
+                padding-bottom: var(--space-xl);
+
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: var(--space-md);
+
+                max-width: 100%;
+
+            }
+
+            .slide-number,
+
+            .car-brand,
+
+            .car-name,
+
+            .car-subtitle {
+
+                grid-column: 1;
+
+            }
+
+            .car-specs {
+
+                grid-column: 2;
+
+                grid-row: 1 / span 4;
+
+                margin-bottom: 0;
+
+            }
+
+            .performance-badges {
+
+                grid-column: 1 / -1;
+
+            }
+
+            .add-button {
+
+                width: 44px;
+
+                height: 44px;
+
+                bottom: var(--space-md);
+
+                right: var(--space-md);
+
+            }
+
+        }
+
+        /* ========================================
+
+           REDUCED MOTION
+
+        ======================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *, *::before, *::after {
+
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: 0.01ms !important;
+
+            }
+
+            .slide-content,
+
+            .car-brand,
+
+            .car-name,
+
+            .car-subtitle,
+
+            .car-specs,
+
+            .performance-badges,
+
+            .add-button {
+
+                opacity: 1;
+
+                transform: none;
+
+                transition: none;
+
+            }
+
+        }
+
+        /* ========================================
+
+           DARK MODE ENHANCEMENTS
+
+        ======================================== */
+
+        @media (prefers-color-scheme: dark) {
+
+            :root {
+
+                --color-bg: #000000;
+
+                --color-bg-elevated: #0a0a0a;
+
+            }
+
+        }
+
+        /* ========================================
+
+           HIGH CONTRAST MODE
+
+        ======================================== */
+
+        @media (prefers-contrast: high) {
+
+            .slide:not(.active) {
+
+                filter: grayscale(1) brightness(0.3);
+
+            }
+
+            .car-specs,
+
+            .badge {
+
+                border-width: 2px;
+
+            }
+
+        }
+
+        /* ========================================
+
+           SELECTION STYLES
+
+        ======================================== */
+
+        ::selection {
+
+            background: var(--accent-primary);
+
+            color: #fff;
+
+        }
+
+        /* ========================================
+
+           SCROLLBAR STYLES
+
+        ======================================== */
+
+        ::-webkit-scrollbar {
+
+            width: 6px;
+
+            height: 6px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+
+            background: var(--color-bg);
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background: rgba(255,255,255,0.2);
+
+            border-radius: var(--radius-full);
+
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+
+            background: rgba(255,255,255,0.3);
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+
+    <div class="loading-screen" id="loadingScreen">
+
+        <div class="loading-logo">Supercar</div>
+
+        <div class="loading-bar">
+
+            <div class="loading-progress" id="loadingProgress"></div>
+
+        </div>
+
+        <div class="loading-text">Loading Experience</div>
+
+    </div>
+
+    <!-- Main Slider Container -->
+
+    <div class="slider-container">
+
+        <!-- Now Showing Badge -->
+
+        <div class="now-showing">Now in Showroom</div>
+
+        <!-- Accordion Slider -->
+
+        <div class="accordion-slider" id="accordionSlider">
+
+            <!-- Slide 1: BMW M3 -->
+
+            <div class="slide active" data-index="0">
+
+                <div class="slide-background" style="background-image: url('https://4kwallpapers.com/images/wallpapers/bmw-m3-white-cars-dark-background-night-time-street-lights-1920x1200-3420.jpg')"></div>
+
+                <div class="slide-label">BMW M3</div>
+
+                <div class="slide-content">
+
+                    <div class="slide-number">01</div>
+
+                    <div class="car-brand">BMW M GmbH</div>
+
+                    <h2 class="car-name">M3 Competition</h2>
+
+                    <p class="car-subtitle">Twin-Turbo Inline-6 Performance</p>
+
+                    
+
+                    <div class="car-specs">
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Engine</span>
+
+                            <span class="spec-value">3.0L Twin-Turbo I6</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Power Output</span>
+
+                            <span class="spec-value">503 HP @ 6,250 RPM</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Torque</span>
+
+                            <span class="spec-value">650 Nm @ 2,750 RPM</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Transmission</span>
+
+                            <span class="spec-value">8-Speed M Steptronic</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="performance-badges">
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>0-100: 3.9s</span>
+
+                        </div>
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>Top: 290 km/h</span>
+
+                        </div>
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>$73,400</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="add-button" aria-label="Add to collection"></div>
+
+            </div>
+
+            <!-- Slide 2: Lamborghini Huracán -->
+
+            <div class="slide" data-index="1">
+
+                <div class="slide-background" style="background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/9ed0af92728779.5e52f37d0685a.jpg')"></div>
+
+                <div class="slide-label">Huracán</div>
+
+                <div class="slide-content">
+
+                    <div class="slide-number">02</div>
+
+                    <div class="car-brand">Lamborghini</div>
+
+                    <h2 class="car-name">Huracán EVO</h2>
+
+                    <p class="car-subtitle">Naturally Aspirated V10 Excellence</p>
+
+                    
+
+                    <div class="car-specs">
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Engine</span>
+
+                            <span class="spec-value">5.2L V10 NA</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Power Output</span>
+
+                            <span class="spec-value">640 HP @ 8,000 RPM</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Torque</span>
+
+                            <span class="spec-value">600 Nm @ 6,500 RPM</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Transmission</span>
+
+                            <span class="spec-value">7-Speed LDF DCT</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="performance-badges">
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>0-100: 2.9s</span>
+
+                        </div>
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>Top: 325 km/h</span>
+
+                        </div>
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>$261,274</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="add-button" aria-label="Add to collection"></div>
+
+            </div>
+
+            <!-- Slide 3: Ferrari SF90 -->
+
+            <div class="slide" data-index="2">
+
+                <div class="slide-background" style="background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/46ea8b118785471.60906990ec39a.jpg')"></div>
+
+                <div class="slide-label">SF90</div>
+
+                <div class="slide-content">
+
+                    <div class="slide-number">03</div>
+
+                    <div class="car-brand">Ferrari</div>
+
+                    <h2 class="car-name">SF90 Stradale</h2>
+
+                    <p class="car-subtitle">Plug-in Hybrid Revolution</p>
+
+                    
+
+                    <div class="car-specs">
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Engine</span>
+
+                            <span class="spec-value">4.0L V8 + 3 Electric</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Power Output</span>
+
+                            <span class="spec-value">1,000 HP Combined</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Torque</span>
+
+                            <span class="spec-value">800 Nm @ 6,000 RPM</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Transmission</span>
+
+                            <span class="spec-value">8-Speed F1 DCT</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="performance-badges">
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>0-100: 2.5s</span>
+
+                        </div>
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>Top: 340 km/h</span>
+
+                        </div>
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>$625,000</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="add-button" aria-label="Add to collection"></div>
+
+            </div>
+
+            <!-- Slide 4: Porsche 911 -->
+
+            <div class="slide" data-index="3">
+
+                <div class="slide-background" style="background-image: url('https://4kwallpapers.com/images/wallpapers/porsche-911-turbo-s-black-background-amoled-pitch-black-1600x900-7730.jpg')"></div>
+
+                <div class="slide-label">911 Turbo</div>
+
+                <div class="slide-content">
+
+                    <div class="slide-number">04</div>
+
+                    <div class="car-brand">Porsche</div>
+
+                    <h2 class="car-name">911 Turbo S</h2>
+
+                    <p class="car-subtitle">Twin-Turbo Flat-Six Perfection</p>
+
+                    
+
+                    <div class="car-specs">
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Engine</span>
+
+                            <span class="spec-value">3.8L Twin-Turbo Flat-6</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Power Output</span>
+
+                            <span class="spec-value">640 HP @ 6,750 RPM</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Torque</span>
+
+                            <span class="spec-value">800 Nm @ 2,500 RPM</span>
+
+                        </div>
+
+                        <div class="spec-row">
+
+                            <span class="spec-label">Transmission</span>
+
+                            <span class="spec-value">8-Speed PDK</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="performance-badges">
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>0-100: 2.7s</span>
+
+                        </div>
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>Top: 330 km/h</span>
+
+                        </div>
+
+                        <div class="badge">
+
+                            <div class="badge-icon"></div>
+
+                            <span>$230,400</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="add-button" aria-label="Add to collection"></div>
+
+            </div>
+
+        </div>
+
+        <!-- Navigation Arrows -->
+
+        <button class="navigation-arrows nav-prev" id="navPrev" aria-label="Previous slide">‹</button>
+
+        <button class="navigation-arrows nav-next" id="navNext" aria-label="Next slide">›</button>
+
+        <!-- Slide Indicators -->
+
+        <div class="slide-indicators" id="indicators">
+
+            <div class="indicator active" data-index="0"></div>
+
+            <div class="indicator" data-index="1"></div>
+
+            <div class="indicator" data-index="2"></div>
+
+            <div class="indicator" data-index="3"></div>
+
+        </div>
+
+        <!-- Gesture Hint (Mobile) -->
+
+        <div class="gesture-hint" id="gestureHint">
+
+            <div class="gesture-icon"></div>
+
+            <span class="gesture-text">Swipe to explore</span>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        /* ========================================
+
+           SUPERCAR SHOWCASE - MAIN SCRIPT
+
+           Mobile-first, touch-optimized accordion slider
+
+        ======================================== */
+
+        (function() {
+
+            'use strict';
+
+            // ========================================
+
+            // DOM ELEMENTS
+
+            // ========================================
+
+            const slider = document.getElementById('accordionSlider');
+
+            const slides = Array.from(slider.querySelectorAll('.slide'));
+
+            const indicators = Array.from(document.getElementById('indicators').children);
+
+            const navPrev = document.getElementById('navPrev');
+
+            const navNext = document.getElementById('navNext');
+
+            const loadingScreen = document.getElementById('loadingScreen');
+
+            const loadingProgress = document.getElementById('loadingProgress');
+
+            const gestureHint = document.getElementById('gestureHint');
+
+            // ========================================
+
+            // STATE
+
+            // ========================================
+
+            let currentIndex = 0;
+
+            let isTransitioning = false;
+
+            let touchStartX = 0;
+
+            let touchStartY = 0;
+
+            let touchEndX = 0;
+
+            let touchEndY = 0;
+
+            let autoPlayInterval = null;
+
+            let isAutoPlaying = false;
+
+            // Configuration
+
+            const config = {
+
+                transitionDuration: 500,
+
+                autoPlayDelay: 6000,
+
+                swipeThreshold: 50,
+
+                verticalSwipeThreshold: 100
+
+            };
+
+            // ========================================
+
+            // LOADING SIMULATION
+
+            // ========================================
+
+            function simulateLoading() {
+
+                let progress = 0;
+
+                const interval = setInterval(() => {
+
+                    progress += Math.random() * 15 + 5;
+
+                    if (progress >= 100) {
+
+                        progress = 100;
+
+                        clearInterval(interval);
+
+                        setTimeout(() => {
+
+                            loadingScreen.classList.add('hidden');
+
+                            initSlider();
+
+                        }, 300);
+
+                    }
+
+                    loadingProgress.style.width = progress + '%';
+
+                }, 100);
+
+            }
+
+            // ========================================
+
+            // SLIDER INITIALIZATION
+
+            // ========================================
+
+            function initSlider() {
+
+                // Set initial active state
+
+                updateSlider(0, false);
+
+                
+
+                // Start autoplay after user interaction hint
+
+                setTimeout(() => {
+
+                    gestureHint.classList.add('hidden');
+
+                }, 3000);
+
+            }
+
+            // ========================================
+
+            // UPDATE SLIDER STATE
+
+            // ========================================
+
+            function updateSlider(index, animate = true) {
+
+                if (isTransitioning && animate) return;
+
+                
+
+                isTransitioning = animate;
+
+                currentIndex = index;
+
+                // Update slides
+
+                slides.forEach((slide, i) => {
+
+                    slide.classList.toggle('active', i === index);
+
+                });
+
+                // Update indicators
+
+                indicators.forEach((indicator, i) => {
+
+                    indicator.classList.toggle('active', i === index);
+
+                });
+
+                // Reset transition lock
+
+                if (animate) {
+
+                    setTimeout(() => {
+
+                        isTransitioning = false;
+
+                    }, config.transitionDuration);
+
+                }
+
+                // Reset autoplay
+
+                resetAutoPlay();
+
+            }
+
+            // ========================================
+
+            // NAVIGATION FUNCTIONS
+
+            // ========================================
+
+            function goToSlide(index) {
+
+                if (index < 0) index = slides.length - 1;
+
+                if (index >= slides.length) index = 0;
+
+                if (index === currentIndex) return;
+
+                
+
+                updateSlider(index);
+
+            }
+
+            function nextSlide() {
+
+                goToSlide(currentIndex + 1);
+
+            }
+
+            function prevSlide() {
+
+                goToSlide(currentIndex - 1);
+
+            }
+
+            // ========================================
+
+            // AUTOPLAY
+
+            // ========================================
+
+            function startAutoPlay() {
+
+                if (isAutoPlaying) return;
+
+                isAutoPlaying = true;
+
+                autoPlayInterval = setInterval(nextSlide, config.autoPlayDelay);
+
+            }
+
+            function stopAutoPlay() {
+
+                isAutoPlaying = false;
+
+                if (autoPlayInterval) {
+
+                    clearInterval(autoPlayInterval);
+
+                    autoPlayInterval = null;
+
+                }
+
+            }
+
+            function resetAutoPlay() {
+
+                stopAutoPlay();
+
+                // Don't auto-start on mobile
+
+                if (window.matchMedia('(min-width: 768px)').matches) {
+
+                    startAutoPlay();
+
+                }
+
+            }
+
+            // ========================================
+
+            // EVENT LISTENERS - CLICK/TAP
+
+            // ========================================
+
+            
+
+            // Slide click to activate
+
+            slides.forEach((slide, index) => {
+
+                slide.addEventListener('click', (e) => {
+
+                    // Don't activate if clicking on interactive elements
+
+                    if (e.target.closest('.add-button') || e.target.closest('.car-specs')) {
+
+                        return;
+
+                    }
+
+                    
+
+                    if (index !== currentIndex) {
+
+                        goToSlide(index);
+
+                    }
+
+                });
+
+                // Add button interaction
+
+                const addButton = slide.querySelector('.add-button');
+
+                if (addButton) {
+
+                    addButton.addEventListener('click', (e) => {
+
+                        e.stopPropagation();
+
+                        showNotification('Added to collection');
+
+                        
+
+                        // Animate button
+
+                        addButton.style.transform = 'scale(0.9)';
+
+                        setTimeout(() => {
+
+                            addButton.style.transform = '';
+
+                        }, 150);
+
+                    });
+
+                }
+
+            });
+
+            // Indicator clicks
+
+            indicators.forEach((indicator, index) => {
+
+                indicator.addEventListener('click', () => goToSlide(index));
+
+            });
+
+            // Navigation arrows
+
+            navPrev.addEventListener('click', prevSlide);
+
+            navNext.addEventListener('click', nextSlide);
+
+            // ========================================
+
+            // KEYBOARD NAVIGATION
+
+            // ========================================
+
+            document.addEventListener('keydown', (e) => {
+
+                switch(e.key) {
+
+                    case 'ArrowLeft':
+
+                        e.preventDefault();
+
+                        prevSlide();
+
+                        break;
+
+                    case 'ArrowRight':
+
+                        e.preventDefault();
+
+                        nextSlide();
+
+                        break;
+
+                    case 'Home':
+
+                        e.preventDefault();
+
+                        goToSlide(0);
+
+                        break;
+
+                    case 'End':
+
+                        e.preventDefault();
+
+                        goToSlide(slides.length - 1);
+
+                        break;
+
+                }
+
+            });
+
+            // ========================================
+
+            // TOUCH GESTURES
+
+            // ========================================
+
+            slider.addEventListener('touchstart', (e) => {
+
+                touchStartX = e.touches[0].clientX;
+
+                touchStartY = e.touches[0].clientY;
+
+                stopAutoPlay();
+
+            }, { passive: true });
+
+            slider.addEventListener('touchmove', (e) => {
+
+                // Prevent default only for horizontal swipes
+
+                const diffX = e.touches[0].clientX - touchStartX;
+
+                const diffY = e.touches[0].clientY - touchStartY;
+
+                
+
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+
+                    e.preventDefault();
+
+                }
+
+            }, { passive: false });
+
+            slider.addEventListener('touchend', (e) => {
+
+                touchEndX = e.changedTouches[0].clientX;
+
+                touchEndY = e.changedTouches[0].clientY;
+
+                handleSwipe();
+
+            }, { passive: true });
+
+            function handleSwipe() {
+
+                const diffX = touchStartX - touchEndX;
+
+                const diffY = touchStartY - touchEndY;
+
+                
+
+                // Horizontal swipe detection
+
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > config.swipeThreshold) {
+
+                    if (diffX > 0) {
+
+                        nextSlide();
+
+                    } else {
+
+                        prevSlide();
+
+                    }
+
+                }
+
+                
+
+                // Hide gesture hint after first swipe
+
+                gestureHint.classList.add('hidden');
+
+            }
+
+            // ========================================
+
+            // MOUSE WHEEL NAVIGATION
+
+            // ========================================
+
+            let wheelTimeout = null;
+
+            slider.addEventListener('wheel', (e) => {
+
+                e.preventDefault();
+
+                
+
+                if (wheelTimeout) return;
+
+                
+
+                wheelTimeout = setTimeout(() => {
+
+                    wheelTimeout = null;
+
+                }, 300);
+
+                
+
+                if (e.deltaY > 0 || e.deltaX > 0) {
+
+                    nextSlide();
+
+                } else {
+
+                    prevSlide();
+
+                }
+
+            }, { passive: false });
+
+            // ========================================
+
+            // NOTIFICATION SYSTEM
+
+            // ========================================
+
+            function showNotification(message) {
+
+                // Remove existing notification
+
+                const existing = document.querySelector('.notification');
+
+                if (existing) existing.remove();
+
+                // Create notification
+
+                const notification = document.createElement('div');
+
+                notification.className = 'notification';
+
+                notification.textContent = message;
+
+                notification.style.cssText = `
+
+                    position: fixed;
+
+                    top: 20px;
+
+                    left: 50%;
+
+                    transform: translateX(-50%) translateY(-100px);
+
+                    background: rgba(20, 20, 20, 0.95);
+
+                    backdrop-filter: blur(20px);
+
+                    -webkit-backdrop-filter: blur(20px);
+
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+
+                    border-radius: 12px;
+
+                    padding: 16px 24px;
+
+                    color: #fff;
+
+                    font-size: 14px;
+
+                    font-weight: 500;
+
+                    z-index: 10000;
+
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+                    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+                `;
+
+                
+
+                document.body.appendChild(notification);
+
+                
+
+                // Animate in
+
+                requestAnimationFrame(() => {
+
+                    notification.style.transform = 'translateX(-50%) translateY(0)';
+
+                });
+
+                
+
+                // Remove after delay
+
+                setTimeout(() => {
+
+                    notification.style.transform = 'translateX(-50%) translateY(-100px)';
+
+                    notification.style.opacity = '0';
+
+                    setTimeout(() => notification.remove(), 300);
+
+                }, 2000);
+
+            }
+
+            // ========================================
+
+            // VISIBILITY API - Pause when hidden
+
+            // ========================================
+
+            document.addEventListener('visibilitychange', () => {
+
+                if (document.hidden) {
+
+                    stopAutoPlay();
+
+                } else {
+
+                    resetAutoPlay();
+
+                }
+
+            });
+
+            // ========================================
+
+            // RESIZE HANDLER
+
+            // ========================================
+
+            let resizeTimeout = null;
+
+            window.addEventListener('resize', () => {
+
+                clearTimeout(resizeTimeout);
+
+                resizeTimeout = setTimeout(() => {
+
+                    // Recalculate any dimension-dependent values
+
+                    isTransitioning = false;
+
+                }, 150);
+
+            }, { passive: true });
+
+            // ========================================
+
+            // PREFERS REDUCED MOTION
+
+            // ========================================
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            if (prefersReducedMotion.matches) {
+
+                config.transitionDuration = 0;
+
+            }
+
+            // ========================================
+
+            // INITIALIZE
+
+            // ========================================
+
+            document.addEventListener('DOMContentLoaded', simulateLoading);
+
+            // Preload images
+
+            const imageUrls = slides.map(slide => {
+
+                const bg = slide.querySelector('.slide-background');
+
+                return bg ? getComputedStyle(bg).backgroundImage.slice(4, -1).replace(/"/g, '') : null;
+
+            }).filter(Boolean);
+
+            let loadedImages = 0;
+
+            imageUrls.forEach(url => {
+
+                const img = new Image();
+
+                img.onload = () => {
+
+                    loadedImages++;
+
+                    if (loadedImages === imageUrls.length) {
+
+                        // All images loaded
+
+                    }
+
+                };
+
+                img.onerror = () => {
+
+                    loadedImages++;
+
+                };
+
+                img.src = url;
+
+            });
+
+        })();
+
+    </script>
+
+</body>
+
+</html>
+
